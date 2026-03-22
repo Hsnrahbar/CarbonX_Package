@@ -1,16 +1,38 @@
 """
-Top-level CarbonX package exports.
+Core modules for CarbonX solver
+Contains the main reactor models and wrapper classes
 """
 
-from .core import GasReactor, MappingWrapper
+# Import core classes
+try:
+    from .carbonx_wrapper import GasReactor
+except ImportError as e:
+    print(f"Warning: Could not import GasReactor: {e}")
+    GasReactor = None
 
-# Backward-compatible aliases used by your tests/manual
-MovingSectionalModel = GasReactor
-Mapping_Wrapper = MappingWrapper
+try:
+    from .mapping_wrapper import MappingWrapper
+except ImportError as e:
+    print(f"Warning: Could not import MappingWrapper: {e}")
+    MappingWrapper = None
 
+try:
+    from . import cythonization_module_mean
+    from . import cythonization_module_fmr
+    from . import cythonization_module_cr
+    from . import cythonization_module_fuchs
+except ImportError as e:
+    print(f"Warning: Could not import helper core modules: {e}")
+
+# Define public API
 __all__ = [
-    "GasReactor",
-    "MappingWrapper",
-    "MovingSectionalModel",
-    "Mapping_Wrapper",
+    'GasReactor',
+    'MappingWrapper',
+    'cythonization_module_mean',
+    'cythonization_module_cr',
+    'cythonization_module_fmr',
+    'cythonization_module_fuchs',
+    
 ]
+
+
