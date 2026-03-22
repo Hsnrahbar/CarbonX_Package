@@ -1,0 +1,98 @@
+###CarbonX###
+# Version 0.2
+# Surface reactions (Table 1) converted to CarbonX YAML format
+# Notes:
+# - "=>" used for reactions.
+# - Each forward reaction is followed by a reverse slot.
+# - If irreversible: reverse slot equation is N/A with placeholder rate-constant fields.
+# - Species with "(s)" are written as "_s" (e.g., CH3(s) -> CH3_s).
+# - Species with "(NT)" are written as "_NT" (e.g., C(NT) -> C_NT).
+
+#-----------------------------------------------------------------------------------------
+
+phases:
+  #name: gas
+  atomic_masses: {Fe: 55.845, C: 12.011, O: 15.999, Al: 26.982, N: 14.007, Ni: 58.693, Au: 196.967, Ag: 107.868, Co: 58.933, He: 4.003, Ar: 39.948, Mo: 95.95, H: 1.008}
+  species: [H, H_s, H2 ,CH3,CH3_s,CH2_s,CH_s,C2H1_s,C2H2,C2H2_s,CH4,C_s,C2_s,C_NT]
+  
+reactions:
+
+
+- equation: S + H => H_s  # sr1 forward
+  rate-constant: {A: 1.0e13, b: 0.0, Ea: 0.0}
+- equation: N/A  # sr1 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: H_s + H => S + H2  # sr2 forward
+  rate-constant: {A: 1.3e14, b: 0.0, Ea: 7.3}
+- equation: N/A  # sr2 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: S + CH3 => CH3_s  # sr3 forward
+  rate-constant: {A: 5.0e12, b: 0.0, Ea: 0.0}
+- equation: N/A  # sr3 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: CH2_s + H => S + CH3  # sr4 forward
+  rate-constant: {A: 3.0e13, b: 0.0, Ea: 0.0}
+- equation: N/A  # sr4 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: S + C2H2 => C2H2_s  # sr5 forward
+  rate-constant: {A: 8.0e10, b: 0.0, Ea: 7.7}
+- equation: N/A  # sr5 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: S + CH4 => C_s + 2H2  # sr6: S + CH4 => C_s + 2H2
+  rate-constant: impingements
+- equation: N/A  # sr6 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: S + C2H2 => C2_s + H2  # sr7: S + C2H2 => C2_s + H2
+  rate-constant: impingements
+- equation: N/A  # sr7 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: CH3_s + H => CH2_s + H2  # sr8 forward
+  rate-constant: {A: 2.8e7, b: 2.0, Ea: 7700}
+- equation: CH2_s + H2 => CH3_s + H  # sr8 reverse
+ rate-constant: {A: 2.798E+07, b: 2, Ea: 26897.1072874064}
+#  rate-constant: {A: 2.8e7, b: 2.0, Ea: 7700}
+
+
+- equation: CH2_s + H => CH_s + H2  # sr9 forward
+  rate-constant: {A: 2.8e7, b: 2.0, Ea: 7700}
+- equation: CH_s + H2 => CH2_s + H  # sr9 reverse
+   rate-constant: {A: 2.800E+07, b: 2, Ea: 2.100E+04}
+# rate-constant: {A: 2.8e7, b: 0.0, Ea: 7700}
+
+
+- equation: CH_s + H => C_s + H2  # sr10 forward
+  rate-constant: {A: 2.8e7, b: 2.0, Ea: 7700}
+- equation: C_s + H2 => CH_s + H  # sr10 reverse
+   rate-constant: {A: 2.801E+07, b: 2, Ea: 2.170E+04}
+#rate-constant: {A: 2.8e7, b: 2.0, Ea: 77000}
+
+
+- equation: C2H2_s + H => C2H1_s + H2  # sr11 forward
+  rate-constant: {A: 9.0e6, b: 2.0, Ea: 5000}
+- equation: N/A  # sr11 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: C2H1_s + H => C2_s + H2  # sr12 forward
+  rate-constant: {A: 9.0e6, b: 2.0, Ea: 5000}
+- equation: N/A  # sr12 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: C_s => S + C_NT  # sr13 forward
+  rate-constant: {A: 1.3e12, b: 0.0, Ea: 31104}
+- equation: N/A  # sr13 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+- equation: C2_s => S + 2C_NT  # sr14 forward
+  rate-constant: {A: 1.3e12, b: 0.0, Ea: 31104}
+- equation: N/A  # sr14 reverse (irreversible)
+  rate-constant: {A: ..., b: ..., Ea: ...}
+
+
+

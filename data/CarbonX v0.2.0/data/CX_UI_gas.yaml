@@ -1,0 +1,47 @@
+###CarbonX###
+# CX_UI.yaml
+#Limitation!!
+#Please: 
+#  -use "=>" in defining reactions
+#  -for each reaction, first defin the forward then backward reaction below that then define the next reaction.
+#if there is no reverse reaction just type "N/A" in fron of the reverse reaction like: 
+#- equation: FeCO => Fe+ CO  # Reaction 4 forward
+#  rate-constant: {A: 4.16e18, b: -3.1, Ea: 37016.33752}
+#- equation: N/A
+#  rate-constant: {A:  1.64e14, b: -2.1, Ea: 2635.67900}
+#
+#-----------------------------------------------------------------------------------------
+
+
+phases:
+  name: gas
+  atomic_masses: {Fe: 55.845, C: 12.011, O: 15.999, Al: 26.982, N: 14.007, Ni: 58.693, Au: 196.967, Ag: 107.868, Co: 58.933, He: 4.003, Ar: 39.948, Mo: 95.95, H: 1.008}
+  species: [FeCO, FeC2O2, FeC3O3, FeC4O4, FeC5O5, Fe, CO, N2]
+  
+reactions:
+
+
+- equation: FeC5O5 => FeC4O4+ CO  # Reaction 0 forward
+  rate-constant: {A: 3.16e59, b: -14.1, Ea: 203594.31864}
+- equation:FeC4O4+ CO => FeC5O5   # Reaction 0 reverse
+  rate-constant: {A: 1.52e49, b: -12.3, Ea: 39693.14776}
+
+- equation: FeC4O4 => FeC3O3+ CO  # Reaction 1 forward
+  rate-constant: {A: 5.82e44, b: -9.8, Ea: 150323.00304}
+- equation: FeC3O3+ CO => FeC4O4  # Reaction 1 reverse
+  rate-constant: {A: 4.67e35, b: -7.6, Ea: 18491.31352}
+
+- equation: FeC3O3 => FeC2O2+ CO  # Reaction 2 forward
+  rate-constant: {A: 3.76e46, b: -10.7, Ea: 149853.7256}
+- equation: FeC2O2+ CO => FeC3O3   # Reaction 2 reverse
+  rate-constant: {A: 8.43e38, b: -8.9, Ea: 19098.24456}
+
+- equation: FeC2O2 => FeCO+ CO  # Reaction 3 forward
+  rate-constant: {A: 1.97e42, b: -9.3, Ea: 156331.68728}
+- equation: FeCO+ CO => FeC2O2  # Reaction 3 reverse
+  rate-constant: {A: 3.79e33, b: -7.1, Ea:  13910.06615}
+
+- equation: FeCO => Fe+ CO  # Reaction 4 forward
+  rate-constant: {A: 4.16e18, b: -3.1, Ea: 37016.33752}
+- equation: Fe+ CO => FeCO   # Reaction 4 reverse
+  rate-constant: {A:  1.64e14, b: -2.1, Ea: 2635.67900}
