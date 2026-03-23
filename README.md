@@ -1,4 +1,4 @@
-<img src="./data/logo/logo_Cx.png" alt="CarbonX logo" width="120px">
+<img src="./data/logo/logo_Cx2.png" alt="CarbonX logo" width="120px">
 
 # CarbonX
 
