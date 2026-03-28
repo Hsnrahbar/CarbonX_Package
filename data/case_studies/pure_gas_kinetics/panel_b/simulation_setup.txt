@@ -5,6 +5,6 @@
 # T_react: reactor wall temperature in K  
 # L_react: reactor temperature in m
 #-----------------------------------------------------------------------------------------
-T_react=[1273]
+T_react=[1173]
 L_react=[0]
 
