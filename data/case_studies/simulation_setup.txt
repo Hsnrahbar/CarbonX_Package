@@ -1,0 +1,10 @@
+###CarbonX###
+# Version 0.2
+# definition of temeprerature history
+# Notes: Units: 
+# T_react: reactor wall temperature in K  
+# L_react: reactor temperature in m
+#-----------------------------------------------------------------------------------------
+T_react=[300]
+L_react=[0]
+
